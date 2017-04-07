@@ -1,0 +1,111 @@
+<% layout('./public/layout') %>
+<div class="bd-example">
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleModalLabel">Actualizar Cliente</h4>
+                </div>
+                <div class="modal-body">
+                    <form action="/updateArticle">
+
+                        <div class="form-group" <input type="hidden" name="customerid" id="customerid"  class="form-control" required="true" />
+                </div>
+
+                <div class="form-group">
+                    <label> Nombre</label>
+                    <input type="text" name="name" class="form-control" required="true" />
+                </div>
+                <div class="form-group">
+                    <label> Apellido</label>
+                    <input type="text" name="lastname" class="form-control" required="true" />
+                </div>
+
+                <div class="form-group">
+                    <label> Username</label>
+                    <input type="text" name="username" class="form-control" required="true" />
+                </div>
+                <div class="form-group">
+                    <label>Identificacion</label>
+                    <input type="number" name="ident" class="form-control" required="true"  min="0"/>
+                </div>
+                <div class="form-group">
+                    <label> Password</label>
+                    <input type="password" name="password" class="form-control" required="true" />
+                </div>
+                <div class="form-group">
+                    <label> Cuenta</label>
+                    <input type="number" name="account" class="form-control" required="true"  min="0"/>
+                </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" id="updatecustomer">Guardar </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        <div class="container padding 2000px ">
+            <h2>Clientes </h2>
+            <table class="table table-hover  table-bordered">
+                <thead>
+                    <tr>
+                      <th>
+                      </th>
+
+                        <th>
+                             <input type="checkbox" id="allcustomers" value="">
+                        </th>
+                        <th>Nombre</th>
+
+                        <th>Apellido </th>
+                        <th>Identification</th>
+
+                        <th>Username </th>
+
+                                                <th>Cuenta </th>
+
+                                                <th>Modificar </th>
+                    </tr>
+                </thead>
+                <tbody>
+<% console.log(customers) %>
+                    <% customers.forEach(function(value,index,arr){ %>
+                        <tr>
+  <td><label><%= arr[index].id%></label></td>
+                            <td>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" id="id" name="id" value="<%= arr[index].id %>"></label>
+                                </div>
+                            </td>
+                            <td><label><%= arr[index].name%></label></td>
+
+                            <td><label><%= arr[index].lastName%></label></td>
+
+                            <td><label><%= arr[index].identification%></label></td>
+
+                            <td><label><%= arr[index].username%></label></td>
+
+                                                        <td><label><%= arr[index].account%></label></td>
+
+
+                            <td>
+                                <button type="button" class="btn btn-success" id="updatecustomer" data-toggle="modal" name="updatecustomer" data-target="#exampleModal" data-whatever="@getbootstrap">Modificar</button>
+                            </td>
+                        </tr>
+                        <%  }) %>
+                </tbody>
+            </table>
+              <div ="container-fluid">
+            <a class="btn btn-default" href="/addcustomer" role="button">Agregar Clientes  &raquo;</a>
+            <button class="btn btn-danger" type="button" id="removecustomers"> Eliminar  Cliente </button>
+
+            <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Ver Menu</a></div>
+        </div>

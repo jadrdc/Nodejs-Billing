@@ -1,0 +1,44 @@
+<% layout('./public/layout') %>
+
+   <div class="container padding 2000px ">
+     <div class="col-sms-12"> <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" name="customersearcher"placeholder="Identificacion ">
+        </div>
+        <select id="entity">
+  <option value="cliente">Cliente</option>
+  <option value="vendedores">Vendedores</option>
+</select>
+      <button type="button" class="btn btn-default" id="findentity">Buscar  </button>
+      </form>
+
+
+
+
+
+
+
+
+
+      <div class="container padding 2000px ">
+          <table class="table table-hover  table-bordered" id="reportdata">
+              <thead>
+                  <tr>
+
+                      <th>Comprador</th>
+
+                      <th>Vendedor </th>
+
+                      <th>Monto </th>
+
+                  </tr>
+              </thead>
+              <tbody>
+
+              </tbody>
+          </table>
+            <div ="container-fluid">
+
+              <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Ver Menu</a>    </div>
+     </div>
+     </div>

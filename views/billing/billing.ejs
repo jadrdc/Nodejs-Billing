@@ -1,0 +1,61 @@
+<% layout('./public/layout') %>
+
+   <div class="container padding 2000px ">
+     <div class="col-sms-12"> <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" name="customersearcher"placeholder="Identificacion Cliente">
+        </div>
+        <button type="button" class="btn btn-default" id="findcustomer">Buscar Cliente</button>
+      </form>
+     </div>
+     </div>
+
+     <form method="post" action="/bill">
+
+<div class="row">
+
+<input type="hidden" name="customerid" id="customerid"  class="form-control" required="true" />
+
+
+<div class="container padding 2000px ">
+    <h2 id="nameofcustomer">Factura del Cliente </h2>
+    <table class="table table-hover  table-bordered">
+        <thead>
+            <tr>
+                <th>
+                    <input type="checkbox" id="allarticles" value="">
+                </th>
+                <th>Articulo</th>
+
+                <th>Precio </th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+                          <% articles.forEach(function(value,index,arr){ %>
+                              <tr>
+                                  <td>
+                                      <div class="checkbox" required="true">
+                                          <label><input type="checkbox" id="id" name="id" value="<%= arr[index].id %>"></label>
+                                      </div>
+                                  </td>
+                                  <td><label><%= arr[index].description%></label></td>
+
+                                  <td><label><%= arr[index].price%></label></td>
+
+
+                              </tr>
+                              <%  }) %>
+                      </tbody>
+
+        </tbody>
+    </table>
+      <div ="container-fluid">
+    <input class="btn btn-default" type="submit"  id="buy"  value="Facturar Articulos &raquo;"></input>
+    <button class="btn btn-danger" type="button" id="removebuy"> Eliminar Articulos  </button>
+
+                <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Ver Menu</a></div>
+</div>
+</form>
+</div>
